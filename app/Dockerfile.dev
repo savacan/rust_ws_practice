@@ -1,0 +1,8 @@
+FROM rust:1.61
+WORKDIR /app
+RUN apt-get update && apt-get install -y wait-for-it llvm-dev libclang-dev clang cmake
+RUN cargo install cargo-watch
+RUN cargo install cargo-llvm-cov
+RUN rustup component add llvm-tools-preview
+RUN rustup component add rustfmt
+RUN rustup component add clippy

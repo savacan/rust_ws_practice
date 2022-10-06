@@ -1,0 +1,12 @@
+{
+    "name": "ws_app",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "ws_app",
+    "workspaceFolder": "/app",
+    "extensions": [
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb"
+    ]
+}

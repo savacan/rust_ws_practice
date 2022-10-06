@@ -1,0 +1,31 @@
+[package]
+name = "ws_app"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4.1"
+actix-cors = "0.6"
+env_logger = "0.9"
+actix-service = "2.0"
+futures-util = "0.3"
+log = "0.4"
+anyhow = { version = "1.0", features = ["backtrace"] }
+chrono = { version = "0.4", features = ["serde"] }
+url = "2.2.2"
+serde_json = "1.0"
+serde = "1.0"
+ws_sql = { path = "./sql" }
+ws_graph = { path = "./graphql" }
+
+[workspace]
+members = [
+  "sql",
+  "graphql"
+]
+
+[[bin]]
+name = "ws_app"
+path = "src/bin/ws"
