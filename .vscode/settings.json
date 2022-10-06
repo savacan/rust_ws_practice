@@ -1,0 +1,15 @@
+{
+    // rust-analyzer が型チェックや補完を行うために必要な環境変数
+    "rust-analyzer.server.extraEnv": {
+        // sqlx が MySQL サーバーに接続して型チェックを行っているため、
+        // rust-analyzer 上で型チェックを通すためには、DATABASE_URL の環境変数を渡す必要がある。
+        "DATABASE_URL": "mysql://root:password@localhost:13307/test_db"
+    },
+
+    // rust-analyzer 上でテストを実行する際に必要になる環境変数
+    "rust-analyzer.runnableEnv": {
+        "DATABASE_URL": "mysql://root:password@localhost:13307/test_db",
+        // rust-analyzerでtest実行時並列数を1にするための環境変数
+        "RUST_TEST_THREADS": 1,
+    },
+}

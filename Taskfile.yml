@@ -1,0 +1,16 @@
+version: '3'
+
+tasks:
+  up:
+    cmds:
+      - docker compose up
+  down:
+    cmds:
+      - docker compose down
+  migrate:
+    cmds:
+      - docker compose exec mysql-migration /app/migrate.sh
+      - docker compose exec -e DATABASE_URL=mysql://root:password@unit-test-mysql:3306/test_db mysql-migration /app/migrate.sh
+  graphi:
+    cmds:
+      - npx http-server -p 8081 -o ./graphiql
